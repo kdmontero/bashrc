@@ -102,7 +102,7 @@ alias cp='cp -v'
 alias mv='mv -v'
 alias pip='pip3'
 alias gamble='workon gamble && cd ~/Github/gamble'
-alias initiate='python ../initiate.py'
+alias initiate_aoc_day='python ../initiate_aoc_day.py'
 
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -134,3 +134,7 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 export PATH="$PATH:/usr/local/bin/"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
