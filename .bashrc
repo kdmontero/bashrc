@@ -89,7 +89,7 @@ fi
 
 # shortcut for advent of code (aoc)
 aoc() {
-    workon aoc
+    pyenv activate aoc
     cd ~/Github/aoc/"$1"
 }
     
@@ -101,8 +101,9 @@ alias rm='rm -v'
 alias cp='cp -v'
 alias mv='mv -v'
 alias pip='pip3'
-alias gamble='workon gamble && cd ~/Github/gamble'
+alias gamble='pyenv activate gamble && cd ~/Github/gamble'
 alias initiate_aoc_day='python ../initiate_aoc_day.py'
+alias deactivate='pyenv deactivate'
 
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -130,11 +131,16 @@ if ! shopt -oq posix; then
 fi
 
 alias python=python3
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
 export PATH="$PATH:/usr/local/bin/"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
